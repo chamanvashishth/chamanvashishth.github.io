@@ -45,7 +45,7 @@ cd chamanvashishth.github.io
 - 🐦 X: [@chmnvashishth](https://x.com/chmnvashishth)
 - 🐙 GitHub: [chamanvashishth](https://github.com/chamanvashishth)
 - 💼 LinkedIn: [Chaman Vashishth](https://www.linkedin.com/in/chamanvashishth/)
-- 🌐 Portfolio: [chamanvashishth.github.io](https://chamanvashishth.github.io/)
+
 
 ---
 
