@@ -2,10 +2,6 @@
 
 A personal portfolio website built with a **Windows PowerShell-inspired interface** and a jet-black visual theme. 🖥️
 
-## 🌐 Live Website
-
-**Visit:** [chamanvashishth.github.io](https://chamanvashishth.github.io/)
-
 ## 📌 Overview
 
 The portfolio presents my work, projects, technical stack, open-source contributions, achievements, certifications, and professional links through a Windows PowerShell-style interface.
