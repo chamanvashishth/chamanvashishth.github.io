@@ -150,6 +150,33 @@
       .project-tools{margin-left:0}
     }
 
+  
+    /* Portfolio guide: a small, text-first chat panel that stays on this page. */
+    .guide-launch{position:fixed;right:22px;bottom:20px;z-index:20;display:flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);padding:10px 13px;font:600 13px var(--sans);cursor:pointer;box-shadow:0 3px 14px #00000012}
+    .guide-launch:hover{background:var(--soft);color:var(--ink)}
+    .guide-launch .guide-dot{width:7px;height:7px;border-radius:50%;background:#43845b;display:inline-block}
+    .guide-panel{position:fixed;right:22px;bottom:74px;z-index:21;width:min(390px,calc(100vw - 28px));height:min(560px,calc(100dvh - 112px));display:flex;flex-direction:column;background:var(--bg);color:var(--ink);border:1px solid var(--line);box-shadow:0 10px 38px #00000020}
+    .guide-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:15px 16px 12px;border-bottom:1px solid var(--line)}
+    .guide-heading{font-size:14px;font-weight:700;margin:0}
+    .guide-subheading{font-size:11px;color:var(--muted);margin:3px 0 0}
+    .guide-close{border:1px solid var(--line);background:var(--bg);color:var(--ink);width:30px;height:30px;font-size:18px;cursor:pointer;flex:0 0 auto}
+    .guide-messages{padding:14px;overflow:auto;flex:1;display:flex;flex-direction:column;gap:12px}
+    .guide-message{max-width:95%;font-size:13px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+    .guide-message.assistant{align-self:flex-start;background:var(--soft);padding:10px 11px}
+    .guide-message.visitor{align-self:flex-end;border:1px solid var(--line);padding:8px 10px}
+    .guide-message p{margin:0}
+    .guide-links{display:flex;flex-wrap:wrap;gap:7px 12px;margin-top:9px;font-size:12px}
+    .guide-links a{overflow-wrap:anywhere}
+    .guide-suggestions{display:flex;flex-wrap:wrap;gap:7px;padding:0 14px 12px}
+    .guide-suggestions button{border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:6px 8px;text-align:left;font:12px/1.4 var(--sans);cursor:pointer}
+    .guide-suggestions button:hover{background:var(--soft)}
+    .guide-form{display:flex;gap:8px;border-top:1px solid var(--line);padding:11px}
+    .guide-input{min-width:0;flex:1;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:10px;font:13px var(--sans);border-radius:0}
+    .guide-send{border:1px solid var(--ink);background:var(--ink);color:var(--bg);padding:0 12px;font:13px var(--sans);cursor:pointer}
+    .guide-privacy{font-size:10px;line-height:1.4;color:var(--muted);padding:0 12px 10px}
+    @media(max-width:520px){.guide-launch{right:12px;bottom:12px}.guide-panel{right:8px;bottom:65px;width:calc(100vw - 16px);height:min(590px,calc(100dvh - 84px))}}
+    @media(prefers-reduced-motion:reduce){.guide-panel{scroll-behavior:auto}}
+
   </style>
 </head>
 <body>
@@ -317,6 +344,30 @@
       <div class="contact-links"><a href="mailto:chamanvashishth133@gmail.com">Email ↗</a><a href="https://github.com/chamanvashishth" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/chamanvashishth/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.kaggle.com/chamanvashishth" target="_blank" rel="noreferrer">Kaggle ↗</a></div>
     </div>
   </main>
+
+  <section class="guide-panel" id="portfolioGuide" role="dialog" aria-modal="false" aria-labelledby="guideTitle" aria-describedby="guidePrivacy" hidden>
+    <div class="guide-header">
+      <div><h2 class="guide-heading" id="guideTitle">Ask about my work</h2><p class="guide-subheading">A little guide to what I build and learn.</p></div>
+      <button class="guide-close" id="guideClose" type="button" aria-label="Close portfolio guide">×</button>
+    </div>
+    <div class="guide-messages" id="guideMessages" role="log" aria-live="polite" aria-relevant="additions">
+      <div class="guide-message assistant"><p>Hi! I’m a small guide to my portfolio. Ask me about my ML projects, how I build things, open source, or internships. I’ll point you to the actual code and demos wherever I can.</p></div>
+    </div>
+    <div class="guide-suggestions" id="guideSuggestions" aria-label="Suggested questions">
+      <button type="button" data-question="Which project best demonstrates your ML skills?">Best ML project?</button>
+      <button type="button" data-question="How did you build your neural network from scratch?">Neural net, from scratch</button>
+      <button type="button" data-question="What is your open-source experience?">Open-source experience</button>
+      <button type="button" data-question="Are you available for internships?">Internships?</button>
+    </div>
+    <form class="guide-form" id="guideForm">
+      <label for="guideInput" class="section-label" style="display:none">Ask a question about Chaman's work</label>
+      <input class="guide-input" id="guideInput" name="question" maxlength="300" placeholder="Ask about a project, skill, or experience…" autocomplete="off" required>
+      <button class="guide-send" type="submit">Ask ↗</button>
+    </form>
+    <div class="guide-privacy" id="guidePrivacy">Portfolio guide · Answers are selected from my published portfolio content. Your question stays in this browser; no AI API or external chatbot service is used.</div>
+  </section>
+  <button class="guide-launch" id="guideLaunch" type="button" aria-expanded="false" aria-controls="portfolioGuide"><span class="guide-dot" aria-hidden="true"></span> Ask about my work</button>
+
   <footer><div class="wrap footer-inner"><span>Chaman Vashishth</span><span>Made by me, with room to keep learning.</span><a href="#home">Back to top ↑</a></div></footer>
   <script>
     const menuToggle=document.getElementById('menuToggle');
@@ -334,6 +385,64 @@
     const projectCount=document.getElementById('projectCount');
     const projectEmpty=document.getElementById('projectEmpty');
     projectSearch.addEventListener('input',()=>{const query=projectSearch.value.trim().toLowerCase();let visible=0;projectCards.forEach(card=>{const match=(card.dataset.search+' '+card.innerText).toLowerCase().includes(query);card.hidden=!match;if(match)visible++;});projectCount.textContent=visible+(visible===1?' project':' projects');projectEmpty.hidden=visible!==0;});
+
+    // This is a small local portfolio guide, not a hosted AI model. It only uses the
+    // curated answers and links below, so visitors' questions are never transmitted.
+    const guidePanel=document.getElementById('portfolioGuide');
+    const guideLaunch=document.getElementById('guideLaunch');
+    const guideClose=document.getElementById('guideClose');
+    const guideMessages=document.getElementById('guideMessages');
+    const guideForm=document.getElementById('guideForm');
+    const guideInput=document.getElementById('guideInput');
+    const guideSuggestions=document.getElementById('guideSuggestions');
+    const guideAnswers=[
+      {id:'ml',keys:['best ml project','best machine learning','ml skills','machine learning project','strongest ml','recommendation project','predictx','predictive maintenance','shap'],title:'My strongest ML examples',text:'If I had to pick one project to show how I understand the mechanics of ML, I’d start with my Neural Network from Scratch. I implemented the training pieces with NumPy instead of hiding them behind a deep-learning framework. For a more applied workflow, I’d also show PredictX (predictive maintenance and model interpretation) and my Movie Recommendation Engine (ALS/SVD collaborative filtering). I like projects where I can explain not just the result, but why the method works and where it might fail.',links:[['Neural Network source','https://github.com/chamanvashishth/neural-net-scratch'],['Try the neural-net demo','https://neural-net-scratch-yhplepcmk27ljxudgqovml.streamlit.app/'],['PredictX source','https://github.com/chamanvashishth/PredictX'],['PredictX demo','https://predictx-sy4us8bgqd3ql9v2tr2wu2.streamlit.app/'],['Recommender source','https://github.com/chamanvashishth/movie-recommender-als'],['Recommender demo','https://movie-recommender-als-ljcrtd5t8qxfetnf42wbx9.streamlit.app/']]},
+      {id:'neural',keys:['neural network from scratch','how did you build','backprop','back propagation','mnist','numpy neural','dropout','batch normalization'],title:'How I built the neural network',text:'I built a feed-forward MNIST classifier with NumPy to understand the steps a framework normally abstracts away. The project includes dense layers, forward passes, softmax cross-entropy, manual backpropagation, batch normalization, dropout, and Adam optimization. The repository reports 97.4% test accuracy. I see that number as one metric, not the whole story: the useful part for me was implementing and debugging the learning process and being able to inspect the code.',links:[['Source code and README','https://github.com/chamanvashishth/neural-net-scratch'],['Interactive demo','https://neural-net-scratch-yhplepcmk27ljxudgqovml.streamlit.app/']]},
+      {id:'opensource',keys:['open source','opensource','contribution','contributions','pull request','gsoc','gssoc','nsoc','community'],title:'My open-source experience',text:'I’m still growing as an open-source contributor, and I try to be precise about what I did. My work includes features and fixes in Student Notes App, an offline speech-to-image flow and CPU/CUDA handling in ML-CaPsule, and a theme-accessibility change in FindMyGSoC. I’ve also worked on documentation and backend improvements in project repositories. One PR I submitted to FitMart was closed without merging, so I don’t count it as a merged contribution. I’m preparing for more sustained contributions, including GSoC 2027.',links:[['Student Notes App','https://github.com/chamanvashishth/student-notes-app'],['Study dashboard PR','https://github.com/chamanvashishth/student-notes-app/pull/1'],['Pomodoro timer PR','https://github.com/chamanvashishth/student-notes-app/pull/2'],['ML-CaPsule PR','https://github.com/chamanvashishth/ML-CaPsule/pull/1'],['FindMyGSoC live tool','https://findmygsoc.vercel.app/'],['My GitHub','https://github.com/chamanvashishth']]},
+      {id:'internship',keys:['internship','internships','available','availability','hiring','job','opportunity','recruit','work with you','hire'],title:'Internship availability',text:'I’m interested in relevant AI/ML, data science, software engineering, and research opportunities where I can contribute, learn from code reviews, and work on real problems. I’ve listed my experience and projects on this page, but this guide can’t promise my current schedule or availability. The best way to check is to email me or message me on LinkedIn with the role, expected dates, and what the team is building.',links:[['Email me','mailto:chamanvashishth133@gmail.com'],['LinkedIn','https://www.linkedin.com/in/chamanvashishth/'],['Resume / project profile on GitHub','https://github.com/chamanvashishth']]},
+      {id:'aria',keys:['aria','local ai','own model','llm','transformer','no api','neural layers','autodiff'],title:'ARIA and local-first AI',text:'ARIA is my in-development attempt to understand AI systems from the foundations up rather than only calling a hosted model. The repository includes a tensor foundation, reverse-mode automatic differentiation, neural layers, a tokenizer, and an experimental Transformer. I’m careful not to call every component production-ready: this is an evolving learning and engineering project, and the source is the best place to see its current state.',links:[['ARIA repository','https://github.com/chamanvashishth/ARIA']]},
+      {id:'quantum',keys:['quantum','qubit','quantum laboratory','aiqcp','circuit','simulator'],title:'My quantum-computing projects',text:'I’m exploring quantum computing through software and interactive learning tools. Quantum Laboratory focuses on lessons, circuit building, simulation, state visualization, and practice; QubitLab is a separate iteration of the idea. They are educational software simulators, not connections to physical quantum hardware. I’m interested in making abstract ideas easier to experiment with, not just presenting static explanations.',links:[['Quantum Laboratory source','https://github.com/chamanvashishth/AIQCP'],['QubitLab source','https://github.com/chamanvashishth/Qubit_Lab']]},
+      {id:'recommend',keys:['movie recommendation','recommender','als','svd','collaborative filtering','rmse'],title:'Movie Recommendation Engine',text:'I built a collaborative-filtering recommender on MovieLens 1M using SVD initialization, Alternating Least Squares, and user/item biases. The repository reports a test RMSE of 0.865. It’s a useful example of working with recommendation methods beyond a basic classifier and comparing a model with a measurable evaluation metric.',links:[['Repository and implementation','https://github.com/chamanvashishth/movie-recommender-als'],['Live demo','https://movie-recommender-als-ljcrtd5t8qxfetnf42wbx9.streamlit.app/']]},
+      {id:'predictx',keys:['predictx','predictive maintenance','ai4i','industrial','explainable','explainability'],title:'PredictX',text:'PredictX explores predictive maintenance with the AI4I 2020 dataset. I built a workflow around data checks, model comparison, classification metrics, feature importance, SHAP-compatible explanations, and a dashboard for exploring predictions. I like this kind of project because model quality matters, but so does explaining what a prediction is based on.',links:[['Source code','https://github.com/chamanvashishth/PredictX'],['Live demo','https://predictx-sy4us8bgqd3ql9v2tr2wu2.streamlit.app/']]},
+      {id:'about',keys:['who are you','about you','background','education','study','college','degree','skills','tech stack','technologies','what do you do','your interests'],title:'A little about me',text:'I’m an undergraduate studying Internet of Things at Dayalbagh Educational Institute, expected to graduate in 2028. I learn by building: Python and ML experiments, web applications, IoT projects, and quantum-computing tools. I’m especially curious about what happens under the hood—how a model learns, how a system behaves, and how I can test an idea rather than just describe it. I’m still early in the journey, so I try to share the code and be honest about what is unfinished.',links:[['GitHub','https://github.com/chamanvashishth'],['Kaggle','https://www.kaggle.com/chamanvashishth'],['LinkedIn','https://www.linkedin.com/in/chamanvashishth/']]},
+      {id:'contact',keys:['contact','email','reach you','linkedin','get in touch','message you'],title:'Let’s talk',text:'If you want to discuss a project, an internship, collaboration, or even point out something I could improve, I’d be glad to hear from you. Email is the most direct route; LinkedIn works too.',links:[['Email','mailto:chamanvashishth133@gmail.com'],['LinkedIn','https://www.linkedin.com/in/chamanvashishth/'],['GitHub','https://github.com/chamanvashishth']]},
+      {id:'evara',keys:['evara','web developer','website','backend','web development','infozap'],title:'Web and backend work',text:'Alongside ML projects, I work on web applications. At Evara Yoga, I’m building and maintaining a yoga and wellness website, including responsive pages, class and instructor information, enquiries, and booking-flow/backend/database improvements. I’ve also contributed to the backend foundation and documentation for Infozap.',links:[['Evara Yoga repository','https://github.com/chamanvashishth/evarayoga'],['Infozap repository','https://github.com/chamanvashishth/Infozap']]}
+    ];
+    function guideFindAnswer(question){
+      const q=question.toLowerCase().replace(/[^a-z0-9+#.\s-]/g,' ').replace(/\s+/g,' ').trim();
+      let best=null,bestScore=0;
+      guideAnswers.forEach(item=>{
+        let score=0;
+        item.keys.forEach(key=>{if(q.includes(key))score=Math.max(score,key.length>9?3:2);});
+        if(item.id==='ml' && /machine learning|\bml\b|project/.test(q))score+=1;
+        if(item.id==='opensource' && /pr|pull request|contribut/.test(q))score+=2;
+        if(item.id==='internship' && /available|availability|intern|hire/.test(q))score+=2;
+        if(score>bestScore){best=item;bestScore=score;}
+      });
+      return bestScore>0?best:null;
+    }
+    function guideAddMessage(text,role,links=[]){
+      const bubble=document.createElement('div');bubble.className='guide-message '+role;
+      const paragraph=document.createElement('p');paragraph.textContent=text;bubble.appendChild(paragraph);
+      if(links.length){const linkList=document.createElement('div');linkList.className='guide-links';links.forEach(([label,url])=>{const a=document.createElement('a');a.textContent=label+' ↗';a.href=url;if(!url.startsWith('mailto:')){a.target='_blank';a.rel='noopener noreferrer';}linkList.appendChild(a);});bubble.appendChild(linkList);}
+      guideMessages.appendChild(bubble);guideMessages.scrollTop=guideMessages.scrollHeight;
+    }
+    function guideAsk(question){
+      const clean=question.trim();if(!clean)return;
+      guideAddMessage(clean,'visitor');
+      const answer=guideFindAnswer(clean);
+      if(answer){guideAddMessage(answer.text,'assistant',answer.links);}
+      else{guideAddMessage('I don’t have a reliable, specific answer for that in my published portfolio notes yet. I’d rather not invent details. Try asking about my neural network from scratch, PredictX, the recommender, ARIA, quantum projects, open-source work, skills, or internship interests—or contact me directly.', 'assistant', [['Email me','mailto:chamanvashishth133@gmail.com'],['Browse my GitHub','https://github.com/chamanvashishth']]);}
+      guideInput.value='';
+    }
+    function guideOpen(){guidePanel.hidden=false;guideLaunch.setAttribute('aria-expanded','true');guideInput.focus();}
+    function guideHide(){guidePanel.hidden=true;guideLaunch.setAttribute('aria-expanded','false');guideLaunch.focus();}
+    guideLaunch.addEventListener('click',()=>guidePanel.hidden?guideOpen():guideHide());
+    guideClose.addEventListener('click',guideHide);
+    guideForm.addEventListener('submit',event=>{event.preventDefault();guideAsk(guideInput.value);});
+    guideSuggestions.addEventListener('click',event=>{const button=event.target.closest('button[data-question]');if(button)guideAsk(button.dataset.question);});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!guidePanel.hidden)guideHide();});
+
   </script>
 </body>
 </html>
