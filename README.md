@@ -45,18 +45,8 @@ The portfolio intentionally uses a minimal, editorial layout: readable typograph
 - Responsive layout for desktop and mobile
 - Light and dark themes with a remembered preference when browser storage is available
 - Searchable project list
-- First-person portfolio guide with curated answers, working project/demo/contact links, and no external AI API
-- Privacy-conscious client-side question matching; visitor questions are not sent to a chatbot service
 - Keyboard-visible focus styles and reduced-motion support
 - Semantic sections and descriptive page metadata
-
-## Portfolio guide
-
-The floating **Ask about my work** panel answers common questions about my ML projects, neural network implementation, open-source work, quantum projects, web development, and internship interests. It speaks in first person using curated, portfolio-backed answers and links to source repositories, demos, and contact channels. Unknown questions get a transparent fallback rather than an invented answer.
-
-The guide is deliberately lightweight: it uses plain JavaScript and intent/keyword matching, does not call an external model or API, does not transmit visitor questions, and does not save chat history. It responds to greetings and small talk, has separate answers for Kaggle and GitHub projects, and covers professional projects, implementation details, reported metrics, open-source work, skills, and opportunity interests. Answers are written in first person to reflect my curious, practical learning style. Unknown or unsupported claims get a transparent fallback. It is a grounded portfolio navigator—not a general-purpose generative AI assistant.
-
-Project metrics are kept tied to the source README. For example, the current Neural Network from Scratch README documents a 98.39% verified local test accuracy with 98.40% macro precision, 98.38% macro recall, and 98.39% macro F1. The recommender answer deliberately avoids treating a hard-coded RMSE as a guaranteed test result because its README says evaluation metrics are run-specific.
 
 ## Run locally
 
