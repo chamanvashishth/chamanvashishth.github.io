@@ -43,7 +43,7 @@ The portfolio intentionally uses a minimal, editorial layout: readable typograph
 
 - **HTML, CSS, and vanilla JavaScript** — no framework or build step
 - Responsive layout for desktop and mobile
-- Light and dark themes with a remembered preference when browser storage is available
+- Dark-only presentation with white text and responsive layout
 - Searchable project list
 - Keyboard-visible focus styles and reduced-motion support
 - Semantic sections and descriptive page metadata
