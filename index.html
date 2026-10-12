@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#faf9f6">
+  <meta name="theme-color" content="#000000">
   <meta name="description" content="Chaman Vashishth is an IoT undergraduate building machine learning projects, local AI experiments, quantum computing tools, and contributing to open source.">
   <meta property="og:title" content="Chaman Vashishth | AI, ML and IoT">
   <meta property="og:description" content="Projects, open-source work, experience, and what I am learning.">
   <meta property="og:type" content="website">
   <title>Chaman Vashishth | AI, ML and IoT</title>
   <style>
-    :root{color-scheme:light;--bg:#faf9f6;--surface:#fff;--ink:#242421;--muted:#6c6b64;--line:#e5e3dc;--accent:#41604c;--soft:#f1f0ea;--sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    :root[data-theme="dark"]{color-scheme:dark;--bg:#000;--surface:#080808;--ink:#f4f4f1;--muted:#a5a5a0;--line:#262626;--accent:#b7cbbd;--soft:#111}
+    :root{color-scheme:dark;--bg:#000;--surface:#080808;--ink:#fff;--muted:#fff;--line:#292929;--accent:#fff;--soft:#111;--sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;scroll-padding-top:82px}
     body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
@@ -151,7 +150,14 @@
     }
 
   
-  </style>
+  
+/* Dark-only palette: all readable text stays white. */
+:root{color-scheme:dark!important;--bg:#000!important;--surface:#080808!important;--ink:#fff!important;--muted:#fff!important;--accent:#fff!important;--soft:#111!important}
+html,body,body *{color:#fff!important}
+a,a:hover,a:visited{color:#fff!important}
+input,button{color:#fff!important;background:#080808!important}
+::placeholder{color:#fff!important;opacity:.72}
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -161,7 +167,7 @@
       <div class="nav-links" id="navLinks">
         <a href="#projects">Projects</a><a href="#open-source">Open source</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#learning">Learning</a><a href="#contact">Contact</a>
       </div>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode"><span id="themeIcon" aria-hidden="true">☾</span></button>
+      
     </nav>
   </header>
   <main>
@@ -320,11 +326,38 @@
   </main>
 
     <footer><div class="wrap footer-inner"><span>Chaman Vashishth</span><span>Made by me, with room to keep learning.</span><a href="#home">Back to top ↑</a></div></footer>
+  
   <script>
-    const menuToggle=document.getElementById('menuToggle');
-    const navLinks=document.getElementById('navLinks');
-    menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.textContent=open?'Close':'Menu';});
-    navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuTot','best machine learning','ml skills','machine learning project','strongest ml','recommendation project','predictx','predictive maintenance','shap'],title:'My strongest ML examples',text:'If I had to pick one project to show how I understand the mechanics of ML, I’d start with my Neural Network from Scratch. I implemented the training pieces with NumPy instead of hiding them behind a deep-learning framework. For a more applied workflow, I’d also show PredictX (predictive maintenance and model interpretation) and my Movie Recommendation Engine (ALS/SVD collaborative filtering). I like projects where I can explain not just the result, but why the method works and where it might fail.',links:[['Neural Network source','https://github.com/chamanvashishth/neural-net-scratch'],['Try the neural-net demo','https://neural-net-scratch-yhplepcmk27ljxudgqovml.streamlit.app/'],['PredictX source','https://github.com/chamanvashishth/PredictX'],['PredictX demo','https://predictx-sy4us8bgqd3ql9v2tr2wu2.streamlit.app/'],['Recommender source','https://github.com/chamanvashishth/movie-recommender-als'],['Recommender demo','https://movie-recommender-als-ljcrtd5t8qxfetnf42wbx9.streamlit.app/']]},
-      {id:'neural',keys:['neural network from scratch','neural network','network architecture','how did you build','backprop','back propagation','mnist','numpy neural','dropout','batch normalization','macro precision','macro recall','macro f1','235146','235,146','98.39','accuracy'],title:'How I built the neural network',text:'I built a 10-class MNIST classifier from first principles using NumPy, without PyTorch, TensorFlow, or a high-level neural-network API. Its architecture is 784 → 256 → 128 → 10, with ReLU, batch normalization, inverted dropout, stable softmax cross-entropy, He/Kaiming initialization, manual backpropagation, and Adam. The current repository documents a verified local checkpoint at 98.39% test accuracy, 98.40% macro precision, 98.38% macro recall, and 98.39% macro F1 across 10,000 test samples; it has 235,146 trainable parameters. An older 97.4% result is retained as a historical benchmark in the README, so I distinguish it from the newer run. I like this project because I can explain the learning mechanics rather than just import a framework.',links:[['Source code and README','https://github.com/chamanvashishth/neural-net-scratch'],['Interactive demo','https://neural-net-scratch-yhplepcmk27ljxudgqovml.streamlit.app/']]},
-      {id:'opensource',keys:['open source','opensource','contribution','contributions','pull request','gsoc','gssoc','nsoc','community'],title:'My open-source experience',text:'I’m still growing as an open-source contributor, and I try to be precise about what I did. My work includes features and fixes in Student Notes App, an offline speech-to-image flow and CPU/CUDA handling in ML-CaPsule, and a theme-accessibility change in FindMyGSoC. I’ve also worked on documentation and backend improvements in project repositories. One PR I submitted to FitMart was closed without merging, so I don’t count it as a merged contribution. I’m preparing for more sustained contributions, including GSoC 2027.',links:[['Student Notes App','https://github.com/chamanvashishth/student-notes-app'],['Study dashboard PR','https://github.com/chamanvashishth/student-notes-app/pull/1'],['Pomodoro timer PR','https://github.com/chamanvashishth/student-notes-app/pull/2'],['ML-CaPsule PR','https://github.com/chamanvashishth/ML-CaPsule/pull/1'],['FindMyGSoC live tool','https://findmygsoc.vercel.app/'],['My GitHub','https://github.com/chamanvashishth']]},
-      {id:'internship',keys:['internship','internships','available','availability','hiring','job','opportunity','recruit','work with you','hire'],title:'Internship availability',text:'I’m interested in relevant AI/ML, data science, software engineering, and research opportunities where I can contribute, learn from code reviews, and work on real problems. I’ve listed my experience and projects on this page, but this guide can’t promise my current schedule or availability. The best way to check is to email me or message me on LinkedIn with the role, expected dates, and what the team is building.',links:[['Email me','mailto:chamanvashishth133@gmail.com'],['LinkedIn','https://www.linkedin.com/in/chamanvashishth/'],['Resume / project prof
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.textContent = isOpen ? 'Close' : 'Menu';
+      });
+      navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = 'Menu';
+      }));
+    }
+    const projectSearch = document.querySelector('.project-search');
+    const projects = [...document.querySelectorAll('.project-list .project')];
+    const projectCount = document.querySelector('.project-count');
+    if (projectSearch && projects.length) {
+      const updateProjects = () => {
+        const query = projectSearch.value.trim().toLowerCase();
+        let visible = 0;
+        projects.forEach(project => {
+          const matches = project.textContent.toLowerCase().includes(query);
+          project.hidden = !matches;
+          if (matches) visible++;
+        });
+        if (projectCount) projectCount.textContent = visible + (visible === 1 ? ' project' : ' projects');
+      };
+      projectSearch.addEventListener('input', updateProjects);
+    }
+  </script>
+</body>
+</html>
