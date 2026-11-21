@@ -19,7 +19,7 @@ This site is meant to be a straightforward record of that work. It links to sour
 - **Projects** — 12 projects across machine learning, local AI, quantum computing, web development, and IoT
 - **Open source** — selected repository work, pull requests, and contribution context
 - **Community** — GSSoC’26, NSoc’26, SIH’26, and GSoC preparation
-- **Experience** — internships, ongoing Web Developer work at Evara Yoga, and team projects
+- **Experience** — internships and team projects
 - **Toolkit** — languages, frameworks, and tools I’ve used in projects
 - **Learning** — courses, credentials, and DSA practice
 - **Contact** — email and professional profiles
@@ -33,7 +33,6 @@ This site is meant to be a straightforward record of that work. It links to sour
 | [Movie Recommendation Engine](https://github.com/chamanvashishth/movie-recommender-als) | Collaborative filtering with ALS and SVD on MovieLens 1M |
 | [ARIA](https://github.com/chamanvashishth/ARIA) | An in-development, local-first AI and neural-network learning project |
 | [Quantum Laboratory](https://github.com/chamanvashishth/AIQCP) | A software-based environment for learning quantum computing concepts |
-| [Evara Yoga](https://github.com/chamanvashishth/evarayoga) | A yoga and wellness website with class information and booking workflows |
 
 See the [live portfolio](https://chamanvashishth.github.io/) for the full project list, technology stacks, and available demos.
 
